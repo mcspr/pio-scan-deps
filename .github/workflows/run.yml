@@ -1,0 +1,25 @@
+name: pio-run
+
+on:
+  push:
+    branches:
+      main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+    - run: |
+        pip install platformio
+        platformio --upgrade dev
+    - name: Works
+      run: |
+        env PLATFORMIO_BUILD_FLAGS="-DTHIS_IS_A_TEST=1" pio run
+    - name: Does not
+      run: |
+        env PLATFORMIO_SRC_BUILD_FLAGS="-DTHIS_IS_A_TEST=1" pio run
+
