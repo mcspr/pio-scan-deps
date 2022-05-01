@@ -21,3 +21,5 @@ jobs:
         platformio upgrade --dev
     - run: |
         env PLATFORMIO_BUILD_FLAGS="-DTHIS_IS_A_TEST=${{ matrix.flag }}" platformio run
+    - run: |
+        env PLATFORMIO_SRC_BUILD_FLAGS="-DTHIS_IS_A_TEST=${{ matrix.flag }}" platformio run
