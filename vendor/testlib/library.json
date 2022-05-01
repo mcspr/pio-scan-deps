@@ -1,0 +1,8 @@
+{
+  "name": "TESTLIB",
+  "description": "This is a test",
+  "version": "1.0.0",
+  "frameworks": "arduino",
+  "headers": ["testlib.h"],
+  "platforms": "*"
+}
