@@ -20,4 +20,4 @@ jobs:
         pip install platformio
         platformio upgrade --dev
     - run: |
-        env PLATFORMIO_BUILD_FLAGS="-DTHIS_IS_A_TEST=${{ matrix.flag }} platformio run
+        env PLATFORMIO_BUILD_FLAGS="-DTHIS_IS_A_TEST=${{ matrix.flag }}" platformio run
