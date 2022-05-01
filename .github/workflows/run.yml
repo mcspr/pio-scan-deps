@@ -15,11 +15,11 @@ jobs:
         python-version: '3.x'
     - run: |
         pip install platformio
-        platformio --upgrade dev
+        platformio upgrade --dev
     - name: Works
       run: |
-        env PLATFORMIO_BUILD_FLAGS="-DTHIS_IS_A_TEST=1" pio run
+        env PLATFORMIO_BUILD_FLAGS="-DTHIS_IS_A_TEST=1" platformio run
     - name: Does not
       run: |
-        env PLATFORMIO_SRC_BUILD_FLAGS="-DTHIS_IS_A_TEST=1" pio run
+        env PLATFORMIO_SRC_BUILD_FLAGS="-DTHIS_IS_A_TEST=1" platformio run
 
