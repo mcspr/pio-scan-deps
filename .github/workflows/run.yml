@@ -8,6 +8,9 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        flag: ["0", "1"]
     steps:
     - uses: actions/checkout@v2
     - uses: actions/setup-python@v2
@@ -16,10 +19,6 @@ jobs:
     - run: |
         pip install platformio
         platformio upgrade --dev
-    - name: Works
-      run: |
-        env PLATFORMIO_BUILD_FLAGS="-DTHIS_IS_A_TEST=1" platformio run
-    - name: Does not
-      run: |
-        env PLATFORMIO_SRC_BUILD_FLAGS="-DTHIS_IS_A_TEST=1" platformio run
+    - run: |
+        env PLATFORMIO_BUILD_FLAGS="-DTHIS_IS_A_TEST=${{ flag }} platformio run
 
